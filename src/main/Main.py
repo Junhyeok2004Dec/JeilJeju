@@ -8,12 +8,12 @@ pygame.init()
 Color = (255, 255, 255)  # white
 Black = (0, 0, 0)  # Black
 
-size = [1280, 720]
+size = [2560, 1080]
 screen = pygame.display.set_mode(size)
 done = False
 clock = pygame.time.Clock()
 
-font = pygame.font.SysFont("consolas", 25)
+font = pygame.font.SysFont("dotum", 95)
 
 image = pygame.image.load("../assets/1.png")
 image = pygame.transform.scale(image, (100, 100))
@@ -21,7 +21,7 @@ image = pygame.transform.scale(image, (100, 100))
 flag = None
 
 
-def printText(string, color=(0, 0, 0), pos=(0, 0)):
+def printText(string, color=(0, 0, 0), pos=(80, 80)):
     textSurface = font.render(string, True, pygame.Color(color), None)
     textRect = textSurface.get_rect()
     textRect.topleft = pos
@@ -53,14 +53,14 @@ def mainWindow():
                 done = True
 
         screen.blit(image, (imageX, imageY))
-        pygame.display.update()
 
         if flag == True:
-            printText(buttons[0], "이 눌렸습니다.")
+            printText(buttons[0] + 'Слава 發', (55,222,111), (80, 80))
         elif flag == False:
-            printText(buttons[0], "이 떼졌습니다")
+            printText(buttons[0] + '이 떼졌습니다....')
         else:
             printText("None")
+        pygame.display.update()
 
 
 mainWindow()
